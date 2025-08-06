@@ -1,0 +1,19 @@
+[
+  {
+    "repo": "NAMA_ANDA/nama-repo-1",
+    "image": "/images/project-1.jpg",
+    "tags": ["React", "CSS"]
+  },
+  {
+    "repo": "NAMA_ANDA/repo-privat-keren",
+    "image": "/images/project-privat.png",
+    "tags": ["Vue", "HTML"],
+    "isPrivate": true,
+    "snippetFile": "src/components/MainComponent.vue" 
+  },
+  {
+    "repo": "NAMA_ANDA/nama-repo-lain",
+    "image": "/images/project-2.gif",
+    "tags": ["HTML", "CSS", "JS"]
+  }
+]
