@@ -153,7 +153,10 @@ document.addEventListener("DOMContentLoaded", function () {
             snippetAuthorInput.value = '';
             snippetEmailInput.value = '';
             iconInfo.click();
-            // Nanti di sini kita akan tambahkan fungsi untuk refresh data dari server
+
+            iconInfo.click();
+            loadSnippets();
+            
         } catch (error) {
             errorMessage.textContent = error.message;
         }
@@ -184,10 +187,48 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   function initializePage() {
-    tabsContainer.innerHTML = "";
-    createTab("bio", "bio");
-    setActiveTab("bio");
-  }
+    tabsContainer.innerHTML = '';
+    createTab('bio', 'bio');
+    setActiveTab('bio');
+    loadSnippets(); // PANGGIL FUNGSI DI SINI
+}
 
   initializePage();
 });
+
+async function loadSnippets() {
+    try {
+        const response = await fetch('/api/get-snippets');
+        if (!response.ok) throw new Error('Failed to load snippets');
+
+        const snippets = await response.json();
+        
+        // Kosongkan kontainer sebelum menampilkan yang baru
+        snippetShowcaseContainer.innerHTML = '';
+
+        // Urutkan snippet dari yang terbaru
+        snippets.sort((a, b) => b.createdAt - a.createdAt); // Asumsi kita akan menambahkan timestamp
+
+        // Loop melalui setiap snippet dan buat kartu HTML-nya
+        snippets.forEach(snippet => {
+            const newSnippetCard = document.createElement('div');
+            newSnippetCard.className = 'snippet-card';
+            newSnippetCard.innerHTML = `
+                <div class="card-header">
+                    <div class="author"><span>@${snippet.author}</span></div>
+                    <div class="card-meta">
+                        <span class="star-btn">&#x272A; <span class="star-count">${snippet.stars || 0}</span> stars</span>
+                    </div>
+                </div>
+                <div class="card-code">
+                    <pre><code>${snippet.code.replace(/</g, "&lt;").replace(/>/g, "&gt;")}</code></pre>
+                </div>
+            `;
+            snippetShowcaseContainer.appendChild(newSnippetCard);
+        });
+
+    } catch (error) {
+        console.error(error);
+        // Anda bisa menampilkan pesan error di UI jika perlu
+    }
+}
