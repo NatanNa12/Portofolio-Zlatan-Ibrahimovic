@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Michael Weaver - Front-end Developer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <div class="logo">michael-weaver</div>
+
+        <nav class="desktop-nav">
+          <a href="#" class="active">_hello</a>
+          <a href="about.html">_about-me</a>
+          <a href="#">_projects</a>
+        </nav>
+        <div class="contact-me desktop-nav">
+          <a href="#">_contact-me</a>
+        </div>
+
+        <div id="mobile-menu-button" class="mobile-nav">
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M3 12H21"
+              stroke="white"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M3 6H21"
+              stroke="white"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M3 18H21"
+              stroke="white"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </div>
+      </header>
+
+      <main>
+        <section class="info-panel fade-in-up">
+          <div class="hello-text">Hi all, I am</div>
+          <h1 class="name">Micheal Weaver</h1>
+          <div class="title typewriter">> Front-end developer</div>
+          <div class="code-info">
+            <p class="comment">// complete the game to continue</p>
+            <p class="comment">// find my profile on Github</p>
+            <p>
+              <span class="const">const</span>
+              <span class="variable">githubLink</span> =
+              <span class="string">"https://github.com/example/url"</span>;
+            </p>
+          </div>
+        </section>
+
+        <section class="game-panel fade-in-up">
+          <div class="game-container">
+            <div class="game-area">
+              <canvas id="snakeGame"></canvas>
+              <div id="game-overlay" class="game-overlay">
+                <div id="start-screen" class="overlay-screen">
+                  <button id="start-button" class="game-button">
+                    start-game
+                  </button>
+                </div>
+                <div
+                  id="game-over-screen"
+                  class="overlay-screen"
+                  style="display: none"
+                >
+                  <div class="message-text">GAME OVER!</div>
+                  <button id="restart-button" class="game-button">
+                    start-again
+                  </button>
+                </div>
+                <div
+                  id="win-screen"
+                  class="overlay-screen"
+                  style="display: none"
+                >
+                  <div class="message-text">WELL DONE!</div>
+                  <button id="play-again-button" class="game-button">
+                    play-again
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="game-instructions">
+              <div>
+                <p class="comment">// use keyboard</p>
+                <p class="comment">// arrows to play</p>
+                <div class="arrows">
+                  <div class="arrow up">▲</div>
+                  <div class="arrow left">◀</div>
+                  <div class="arrow down">▼</div>
+                  <div class="arrow right">▶</div>
+                </div>
+                <p class="comment" style="margin-top: 2rem">// food left</p>
+                <div id="food-dots" class="dots"></div>
+              </div>
+              <button id="skip-button" class="skip-button">skip</button>
+            </div>
+          </div>
+          <div class="code-snippet-panel fade-in-up" style="display: none">
+            <div class="boxes-wrapper">
+              <div class="code-box box-1">
+                <pre><code><span class="comment">// Background task</span>
+<span class="keyword">async function</span> <span class="function-name">fetchData</span>(<span class="param">url</span>) {
+  <span class="keyword">const</span> response = <span class="keyword">await</span> fetch(url);
+  <span class="keyword">const</span> data = <span class="keyword">await</span> response.json();
+  <span class="keyword">return</span> data;
+}</code></pre>
+              </div>
+              <div class="code-box box-2">
+                <pre><code><span class="comment"> 
+      </span>
+<span class="keyword">function</span> <span class="function-name">initializeModel</span>(<span class="param">chart</span>, <span class="param">data</span>) {
+  <span class="keyword">const</span> result = <span class="function-name">parseModel</span>(data, chart.value);
+  <span class="keyword">const</span> event = <span class="function-name">initializeEvent</span>(chart.name);
+  initialization_state = <span class="string">"finished"</span>;
+  <span class="keyword">return</span> result;
+}</code></pre>
+              </div>
+              <div class="code-box box-3">
+                <pre><code><span class="keyword">class</span> <span class="function-name">Component</span> {
+  <span class="function-name">constructor</span>() {
+    <span class="keyword">this</span>.state = { active: <span class="boolean">false</span> };
+  }
+}</code></pre>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer>
+        <div class="social-links">
+          <span>find me in:</span>
+          <a href="#"
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              fill="currentColor"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.6.75ZM11.48 13.812h1.23l-6.85-7.85h-1.355l6.85 7.85Z"
+              /></svg
+          ></a>
+          <a href="#"
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              fill="currentColor"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.325 0-1.936.724-2.25 1.402h.016a2.417 2.417 0 0 1 0-.022V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"
+              /></svg
+          ></a>
+        </div>
+        <div class="github-username"><span>_username</span></div>
+      </footer>
+    </div>
+    <div id="mobile-menu-overlay" class="mobile-menu-overlay">
+      <div class="mobile-menu-header">
+        <span>michael-weaver</span>
+        <div id="close-menu-button">
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M18 6L6 18"
+              stroke="#E5E9F0"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M6 6L18 18"
+              stroke="#E5E9F0"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </div>
+      </div>
+      <nav class="mobile-menu-nav">
+        <p># navigate:</p>
+        <a href="#">_hello</a>
+        <a href="#">_about-me</a>
+        <a href="#">_projects</a>
+        <a href="#">_contact-me</a>
+      </nav>
+      <div class="mobile-menu-footer">
+        <div class="social-links">
+          <span>find me in:</span>
+          <a href="#"><svg width="20" height="20" ...></svg></a>
+          <a href="#"><svg width="20" height="20" ...></svg></a>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

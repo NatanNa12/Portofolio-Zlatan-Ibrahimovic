@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Me - Michael Weaver</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="about.css" />
+    <link rel="stylesheet" href="about.css" />
+    <script src="https://unpkg.com/esprima@~4.0/dist/esprima.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <div class="logo">michael-weaver</div>
+        <nav class="desktop-nav">
+          <a href="index.html">_hello</a>
+          <a href="about.html" class="active">_about-me</a>
+          <a href="#">_projects</a>
+        </nav>
+        <div class="contact-me desktop-nav"><a href="#">_contact-me</a></div>
+        <div id="mobile-menu-button" class="mobile-nav">
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M3 12H21"
+              stroke="white"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M3 6H21"
+              stroke="white"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M3 18H21"
+              stroke="white"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </div>
+      </header>
+
+      <main class="about-main">
+        <aside class="icon-bar">
+          <svg
+            id="icon-terminal"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M4 17L10 11L4 5"
+              stroke="#607B96"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M12 19H20"
+              stroke="#607B96"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+          <svg
+            id="icon-info"
+            class="active"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"
+              stroke="#607B96"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M12 16V12"
+              stroke="#607B96"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M12 8H12.01"
+              stroke="#607B96"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </aside>
+
+        <div class="info-view">
+          <aside class="sidebar">
+            <div class="sidebar-content">
+              <div class="sidebar-section">
+                <h3 class="sidebar-title">&#x25BC; personal-info</h3>
+                <ul class="sidebar-list">
+                  <li class="item-bio" data-key="bio">
+                    <span>&#x1F4C1;</span> bio
+                  </li>
+                  <li class="item-interests" data-key="interests">
+                    <span>&#x1F4C1;</span> interests
+                  </li>
+                  <li class="has-children item-education">
+                    <details open>
+                      <summary data-key="education">
+                        <span>&#x25BC;</span> education
+                      </summary>
+                      <ul>
+                        <li data-key="high-school">
+                          <span>&#x1F4BB;</span> high-school
+                        </li>
+                        <li data-key="university">
+                          <span>&#x1F4BB;</span> university
+                        </li>
+                      </ul>
+                    </details>
+                  </li>
+                </ul>
+              </div>
+              <div class="sidebar-section contacts">
+                <h3 class="sidebar-title">&#x25BC; contacts</h3>
+                <ul class="sidebar-list">
+                  <li><span>&#x2709;</span> user@gmail.com</li>
+                  <li><span>&#x260E;</span> +359246359</li>
+                </ul>
+              </div>
+            </div>
+          </aside>
+
+          <section class="content-area">
+            <div class="content-pane text-pane">
+              <div class="window-tabs"></div>
+              <div class="window-content"></div>
+            </div>
+            <div class="content-pane snippet-pane">
+              <div class="showcase-title">// Code snippet showcase:</div>
+              <div id="snippet-container"></div>
+            </div>
+          </section>
+        </div>
+
+        <div class="terminal-view" style="display: none">
+          <h3>// Add your own code snippet:</h3>
+
+          <input
+            type="email"
+            id="snippet-email"
+            placeholder="your_email@example.com"
+          />
+          <input type="text" id="snippet-author" placeholder="your_username" />
+
+          <textarea
+            id="snippet-input"
+            placeholder="function hello() { console.log('world'); }"
+          ></textarea>
+
+          <p id="error-message" class="error-message"></p>
+
+          <button id="submit-snippet-btn">submit-snippet</button>
+        </div>
+      </main>
+
+      <footer>
+        <div class="social-links">
+          <span>find me in:</span>
+          <a href="#"
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              fill="currentColor"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.6.75ZM11.48 13.812h1.23l-6.85-7.85h-1.355l6.85 7.85Z"
+              /></svg
+          ></a>
+          <a href="#"
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              fill="currentColor"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.325 0-1.936.724-2.25 1.402h.016a2.417 2.417 0 0 1 0-.022V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"
+              /></svg
+          ></a>
+        </div>
+        <div class="github-username"><span>_username</span></div>
+      </footer>
+    </div>
+    <div id="mobile-menu-overlay" class="mobile-menu-overlay"></div>
+    <script src="script.js"></script>
+    <script src="about.js"></script>
+  </body>
+</html>

@@ -1,0 +1,329 @@
+/* Styling khusus untuk halaman about.html */
+
+.about-main {
+  display: flex; /* Menggunakan Flexbox untuk layout utama */
+  width: 100%;
+  height: 100%;
+  padding: 0;
+}
+
+.icon-bar {
+  flex: 0 0 60px; /* Lebar tetap 60px */
+  border-right: 1px solid var(--game-border);
+  padding: 1.5rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.sidebar {
+  flex: 0 0 250px; /* Lebar tetap 250px */
+  border-right: 1px solid var(--game-border);
+  overflow-y: auto;
+}
+.sidebar-content {
+  padding: 1.5rem 0;
+}
+
+.content-area {
+  flex: 1; /* Mengisi sisa ruang */
+  display: flex; /* Menggunakan Flexbox untuk membagi area */
+  overflow: hidden;
+  min-width: 0;
+}
+
+.content-pane {
+  flex: 1; /* Setiap pane (kiri & kanan) akan mencoba mengisi 50% ruang */
+  min-width: 0;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.text-pane {
+  border-right: 1px solid var(--game-border);
+}
+
+.snippet-pane {
+  padding: 2rem;
+}
+
+/* Sidebar */
+.sidebar-title {
+  font-size: 1rem;
+  color: var(--primary-text);
+  margin: 0 1rem 1rem 1rem;
+  cursor: pointer;
+}
+.sidebar-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.sidebar-list li {
+  padding: 5px 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--secondary-text);
+}
+.sidebar-list li:hover,
+.sidebar-list li.active {
+  background-color: rgba(30, 45, 61, 0.5);
+  color: var(--primary-text);
+}
+.sidebar-list details {
+  padding: 0;
+}
+.sidebar-list summary {
+  padding: 5px 1rem;
+}
+.sidebar-list details ul {
+  padding-left: 20px;
+}
+.sidebar-list .item-bio span {
+  color: #e99287;
+}
+.sidebar-list .item-interests span {
+  color: #43d9ad;
+}
+.sidebar-list .item-education > details > summary > span {
+  color: #4d5bce;
+}
+.sidebar .contacts {
+  border-top: 1px solid var(--game-border);
+  margin-top: 1rem;
+  padding-top: 1rem;
+}
+summary {
+  list-style: none;
+}
+summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Konten Teks & Tab */
+.window-tabs {
+  border-bottom: 1px solid var(--game-border);
+  flex-shrink: 0;
+}
+.tab {
+  padding: 0.75rem 1rem;
+  display: inline-block;
+  border-right: 1px solid var(--game-border);
+  color: var(--secondary-text);
+}
+.tab .close-icon {
+  margin-left: 1rem;
+  cursor: pointer;
+}
+.window-content {
+  padding: 2rem;
+  overflow-y: auto;
+  flex-grow: 1;
+}
+.window-content pre {
+  color: var(--secondary-text);
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Showcase Snippet */
+.showcase-title {
+  color: var(--secondary-text);
+  font-weight: 400;
+  margin-bottom: 1.5rem;
+}
+.snippet-card {
+  border: 1px solid var(--game-border);
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  cursor: pointer;
+}
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1rem;
+}
+.author {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.author img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+.card-meta {
+  display: flex;
+  gap: 1rem;
+  color: var(--secondary-text);
+}
+.card-code {
+  background-color: #011221;
+  padding: 1.5rem;
+  border-top: 1px solid var(--game-border);
+  border-radius: 0 0 7px 7px;
+}
+.card-code pre {
+  margin: 0;
+  white-space: pre-wrap;
+}
+.snippet-details {
+  border: 1px solid var(--game-border);
+  border-top: none;
+  padding: 1rem;
+  color: var(--secondary-text);
+  margin-top: -1rem;
+  margin-bottom: 1rem;
+  border-radius: 0 0 8px 8px;
+  position: relative;
+}
+.snippet-details .close-icon {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  cursor: pointer;
+}
+
+/* Tampilan Mobile */
+.mobile-accordion {
+  display: none;
+}
+@media (max-width: 768px) {
+  .about-main {
+    display: none;
+  }
+  main {
+    padding: 0 1rem;
+  }
+  .mobile-accordion {
+    display: block;
+  }
+}
+.icon-bar svg {
+  width: 48px; /* Beri lebar agar ada ruang untuk border */
+  padding-left: 14px;
+  box-sizing: border-box;
+  cursor: pointer;
+  fill: var(--secondary-text); /* Warna default abu-abu */
+}
+
+.icon-bar svg.active {
+  fill: var(--primary-text); /* Warna aktif menjadi putih */
+  border-left: 2px solid var(--primary-text);
+  padding-left: 12px; /* Sesuaikan padding agar ikon tetap di tengah */
+}
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Mengatur handle (gagang) scrollbar */
+::-webkit-scrollbar-thumb {
+  background: var(--game-border);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--secondary-text);
+}
+.info-view {
+  display: flex;
+  flex: 1;
+  min-width: 0;
+}
+
+.terminal-view {
+  flex: 1;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.terminal-view h3 {
+  color: var(--secondary-text);
+  font-weight: 400;
+  margin-bottom: 1.5rem;
+}
+
+#snippet-input {
+  flex-grow: 1;
+  background-color: #011221;
+  border: 1px solid var(--game-border);
+  border-radius: 8px;
+  color: var(--primary-text);
+  font-family: var(--font-family);
+  font-size: 1rem;
+  padding: 1rem;
+  resize: none;
+  margin-bottom: 1.5rem;
+}
+
+#snippet-input:focus {
+  outline: none;
+  border-color: var(--secondary-text);
+}
+
+#submit-snippet-btn {
+  background-color: var(--game-border);
+  color: var(--primary-text);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  align-self: flex-start;
+  font-family: var(--font-family);
+}
+
+/* Menambahkan style untuk input nama */
+#snippet-author {
+  background-color: #011221;
+  border: 1px solid var(--game-border);
+  border-radius: 8px;
+  color: var(--primary-text);
+  font-family: var(--font-family);
+  padding: 0.75rem 1rem;
+  margin-bottom: 1rem;
+}
+#snippet-author:focus {
+  outline: none;
+  border-color: var(--secondary-text);
+}
+
+/* Membatasi tinggi area kode di kartu snippet */
+.card-code pre {
+  max-height: 120px; /* Pertahankan tinggi maksimal agar ukuran kartu tetap */
+  overflow-y: auto; /* Ganti menjadi 'auto' untuk scroll vertikal */
+}
+#snippet-author,
+#snippet-email {
+  background-color: #011221;
+  border: 1px solid var(--game-border);
+  border-radius: 8px;
+  color: var(--primary-text);
+  font-family: var(--font-family);
+  padding: 0.75rem 1rem;
+  margin-bottom: 1rem;
+}
+#snippet-author:focus,
+#snippet-email:focus {
+  outline: none;
+  border-color: var(--secondary-text);
+}
+
+/* Styling untuk pesan error */
+.error-message {
+  color: #e99287; /* Warna merah/pink untuk error */
+  margin-top: -0.5rem;
+  margin-bottom: 1rem;
+  min-height: 1.2em; /* Beri ruang agar layout tidak loncat */
+}

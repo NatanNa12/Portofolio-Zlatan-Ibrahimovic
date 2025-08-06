@@ -1,0 +1,459 @@
+:root {
+  --bg-color: #011627;
+  --primary-text: #e5e9f0;
+  --secondary-text: #607b96;
+  --accent-color-1: #4d5bce;
+  --accent-color-2: #43d9ad;
+  --game-border: #1e2d3d;
+  --font-family: "Fira Code", monospace;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--primary-text);
+  font-family: var(--font-family);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  font-size: 16px;
+}
+
+.container {
+  width: 95%;
+  height: 90vh;
+  max-width: 1800px;
+  border: 1px solid var(--game-border);
+  border-radius: 8px;
+  background: radial-gradient(
+    circle at 50% 0%,
+    rgba(67, 217, 173, 0.2),
+    transparent 40%
+  );
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+header,
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid var(--game-border);
+  flex-shrink: 0;
+}
+
+footer {
+  border-top: 1px solid var(--game-border);
+  border-bottom: none;
+}
+
+main {
+  display: flex;
+  flex-grow: 1;
+  min-height: 0;
+}
+
+.info-panel,
+.game-panel {
+  flex: 1;
+  min-width: 0;
+}
+
+.info-panel {
+  padding: 2rem 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.game-panel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-left: 1px solid var(--game-border);
+  padding: 2rem;
+}
+
+nav a,
+.contact-me a,
+.logo,
+.github-username {
+  color: var(--secondary-text);
+  text-decoration: none;
+  padding: 0.5rem;
+}
+nav a.active {
+  color: var(--primary-text);
+  border-bottom: 2px solid #fea55f;
+}
+nav a:hover,
+.contact-me a:hover {
+  color: var(--primary-text);
+}
+.name {
+  font-size: 3.5rem;
+  margin: 0;
+}
+.title {
+  font-size: 1.5rem;
+  color: var(--accent-color-1);
+  margin-top: 0.5rem;
+  margin-bottom: 4rem;
+}
+.comment {
+  color: var(--secondary-text);
+}
+.code-info .const {
+  color: #c98bdf;
+}
+.code-info .variable {
+  color: var(--accent-color-1);
+}
+.code-info .string {
+  color: #fea55f;
+}
+.social-links {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: var(--secondary-text);
+}
+.social-links a {
+  color: var(--secondary-text);
+  transition: color 0.3s ease;
+}
+.social-links a:hover {
+  color: var(--primary-text);
+}
+
+.game-container {
+  width: 100%;
+  height: 100%;
+  background-color: #011221;
+  border: 1px solid var(--game-border);
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(67, 217, 173, 0.2), 0 0 40px rgba(67, 217, 173, 0.1);
+  display: flex;
+}
+
+.game-area {
+  flex: 2;
+  position: relative;
+  display: flex;
+  padding: 1rem;
+}
+
+#snakeGame {
+  background-color: #011627;
+  border-radius: 4px;
+  width: 100%;
+  height: 100%;
+}
+.game-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+.overlay-screen {
+  text-align: center;
+}
+.message-text {
+  font-size: 2rem;
+  color: var(--primary-text);
+  margin-bottom: 1rem;
+}
+.game-button {
+  background-color: #fea55f;
+  color: #01080e;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: var(--font-family);
+  font-size: 14px;
+}
+
+.game-instructions {
+  flex: 1;
+  padding: 2rem 1.5rem;
+  border-left: 1px solid var(--game-border);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.arrows {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 5px;
+  width: 100px;
+  margin-top: 1rem;
+}
+.arrow {
+  background-color: #011627;
+  border: 1px solid #1e2d3d;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--primary-text);
+  padding: 5px;
+}
+.arrow.up {
+  grid-column: 2 / 3;
+}
+.arrow.left {
+  grid-column: 1 / 2;
+  grid-row: 2 / 3;
+}
+.arrow.down {
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+}
+.arrow.right {
+  grid-column: 3 / 4;
+  grid-row: 2 / 3;
+}
+.dots {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 6px;
+  margin-top: 1rem;
+  width: 80px;
+}
+.dot {
+  width: 10px;
+  height: 10px;
+  background-color: var(--accent-color-2);
+  border-radius: 50%;
+  opacity: 0.4;
+  transition: opacity 0.3s;
+}
+.dot.lit {
+  opacity: 1;
+}
+.skip-button {
+  background-color: #1e2d3d;
+  color: var(--primary-text);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  align-self: flex-end;
+}
+
+/* --- PERBAIKAN PADA PANEL KODE --- */
+.code-snippet-panel {
+  width: 100%;
+  height: 100%;
+  display: none; /* Diaktifkan lewat JS */
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  box-sizing: border-box;
+  background: radial-gradient(
+    circle at center,
+    rgba(67, 217, 173, 0.07),
+    transparent 60%
+  );
+}
+
+.boxes-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 100%;
+  max-width: 700px;
+}
+
+.code-box {
+  background: rgba(1, 22, 39, 0.75);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--game-border);
+  border-radius: 15px;
+  padding: 1rem 1.5rem;
+  box-shadow: 0 0 30px rgba(67, 217, 173, 0.2);
+  overflow: hidden;
+}
+
+.code-box pre {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
+  white-space: pre-wrap;
+}
+
+.code-box .comment {
+  color: #607b96;
+}
+.code-box .keyword {
+  color: #c98bdf;
+}
+.code-box .function-name {
+  color: #43d9ad;
+}
+.code-box .param {
+  color: #fea55f;
+}
+.code-box .string {
+  color: #fea55f;
+}
+.code-box .boolean {
+  color: #56b6c2;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+@keyframes blinkCaret {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: var(--accent-color-1);
+  }
+}
+.fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+  opacity: 0;
+}
+.typewriter {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 0.15em solid var(--accent-color-1);
+  letter-spacing: 0.1em;
+  animation: typing 2.5s steps(20, end) forwards,
+    blinkCaret 0.75s step-end infinite;
+  width: 0;
+}
+.game-panel.fade-in-up {
+  animation-delay: 0.3s;
+}
+
+.mobile-nav {
+  display: none;
+  cursor: pointer;
+}
+
+/* Overlay menu mobile */
+.mobile-menu-overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--bg-color);
+  z-index: 100;
+  transform: translateX(100%); /* Sembunyikan di kanan layar */
+  transition: transform 0.4s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  border-left: 1px solid var(--game-border);
+}
+
+/* Class 'open' akan ditambahkan oleh JS untuk menampilkan menu */
+.mobile-menu-overlay.open {
+  transform: translateX(0);
+}
+
+.mobile-menu-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid var(--game-border);
+  font-size: 16px;
+  color: var(--primary-text);
+}
+
+#close-menu-button {
+  cursor: pointer;
+}
+
+.mobile-menu-nav {
+  padding: 1.5rem;
+  flex-grow: 1;
+}
+
+.mobile-menu-nav p {
+  color: var(--secondary-text);
+  margin-bottom: 1rem;
+}
+
+.mobile-menu-nav a {
+  display: block;
+  color: var(--primary-text);
+  text-decoration: none;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--game-border);
+}
+
+.mobile-menu-footer {
+  padding: 1rem 1.5rem;
+  border-top: 1px solid var(--game-border);
+}
+
+/* --- MEDIA QUERY UNTUK RESPONSIVE --- */
+/* Aturan ini akan berlaku jika lebar layar 768px atau kurang */
+
+@media (max-width: 768px) {
+  /* Sembunyikan navigasi desktop */
+  .desktop-nav {
+    display: none;
+  }
+
+  /* Tampilkan tombol hamburger */
+  .mobile-nav {
+    display: block;
+  }
+
+  /* Ubah layout utama menjadi 1 kolom */
+  main {
+    flex-direction: column;
+    padding: 1rem;
+  }
+
+  /* Sembunyikan panel game di mobile */
+  .game-panel {
+    display: none;
+  }
+
+  .info-panel {
+    padding: 2rem 1rem;
+    text-align: center; /* Pusatkan teks */
+    align-items: center;
+  }
+
+  .name {
+    font-size: 2.5rem;
+  }
+  .title {
+    font-size: 1.2rem;
+  }
+}
