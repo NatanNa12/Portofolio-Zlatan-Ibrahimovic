@@ -8,7 +8,7 @@
     "repo": "NAMA_ANDA/repo-privat-keren",
     "image": "/images/project-privat.png",
     "tags": ["Vue", "HTML"],
-    "isPrivate": true,
+    "isPrivate": false,
     "snippetFile": "src/components/MainComponent.vue" 
   },
   {
