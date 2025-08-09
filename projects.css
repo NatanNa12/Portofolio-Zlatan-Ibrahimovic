@@ -1,5 +1,146 @@
-.projects-main { display: flex; height: 100%; }
-.sidebar { flex: 0 0 250px; border-right: 1px solid var(--game-border); padding: 1.5rem; }
-.content-area { flex: 1; overflow-y: auto; }
-.projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 2rem; padding: 2rem; }
-/* ... (Tambahkan gaya untuk kartu, checkbox, dll.) ... */
+/* Styling khusus untuk halaman projects.html */
+
+.projects-main {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+}
+
+/* --- Sidebar (Filter) --- */
+.sidebar {
+    flex: 0 0 250px;
+    border-right: 1px solid var(--game-border);
+    padding: 1.5rem 0;
+    overflow-y: auto;
+}
+.sidebar-title {
+    font-size: 1rem;
+    color: var(--primary-text);
+    margin: 0 1rem 1rem 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--game-border);
+}
+.filter-list {
+    list-style: none;
+    padding: 0 1rem;
+    margin: 0;
+}
+.filter-list li {
+    margin-bottom: 1rem;
+}
+.filter-list label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    color: var(--secondary-text);
+}
+.filter-list label:hover {
+    color: var(--primary-text);
+}
+.filter-list input[type="checkbox"] {
+    display: none; /* Sembunyikan checkbox asli */
+}
+/* Buat checkbox kustom */
+.filter-list label .custom-checkbox {
+    width: 18px;
+    height: 18px;
+    background-color: transparent;
+    border: 1px solid var(--secondary-text);
+    border-radius: 2px;
+    margin-right: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* Tanda centang (muncul jika dicentang) */
+.filter-list input[type="checkbox"]:checked + label .custom-checkbox {
+    background-color: var(--accent-color-1);
+    border-color: var(--accent-color-1);
+}
+.filter-list input[type="checkbox"]:checked + label .custom-checkbox::after {
+    content: '✔';
+    color: var(--primary-text);
+    font-size: 12px;
+}
+
+/* --- Area Konten --- */
+.content-area {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+.window-tabs {
+    border-bottom: 1px solid var(--game-border);
+    flex-shrink: 0;
+}
+.tab {
+    padding: 0.75rem 1rem;
+    color: var(--secondary-text);
+}
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+    overflow-y: auto;
+}
+.project-card {
+    background-color: #011221;
+    border: 1px solid var(--game-border);
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+.project-card h3 {
+    padding: 1rem;
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--accent-color-1);
+}
+.project-card h3 span {
+    color: var(--secondary-text);
+}
+.card-image {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%; /* Aspect ratio 16:9 */
+}
+.card-image img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.card-image .tech-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: rgba(1, 22, 39, 0.8);
+    padding: 5px;
+    border-radius: 4px;
+}
+.project-card p {
+    padding: 1rem;
+    color: var(--secondary-text);
+    flex-grow: 1; /* Mendorong tombol ke bawah */
+}
+.view-button {
+    background-color: var(--game-border);
+    color: var(--primary-text);
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    margin: 1rem;
+    align-self: flex-start; /* Tombol tidak meregang */
+}
+.view-button:hover {
+    background-color: #2b435e;
+}

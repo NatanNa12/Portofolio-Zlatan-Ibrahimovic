@@ -9,10 +9,10 @@
     "image": "/images/project-situs.png",
     "tags": ["JS", "HTML","CSS"],
     "isPrivate": true,
-    "snippetFile": "src/components/MainComponent.vue" 
+    "snippetFile": "server.js" 
   },
   {
-    "repo": "NAMA_ANDA/nama-repo-lain",
+    "repo": "NatanNa12/Portofolio-Zlatan-Ibrahimovic",
     "image": "/images/project-2.gif",
     "tags": ["HTML", "CSS", "JS"]
   }
