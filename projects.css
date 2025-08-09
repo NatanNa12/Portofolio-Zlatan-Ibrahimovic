@@ -1,0 +1,5 @@
+.projects-main { display: flex; height: 100%; }
+.sidebar { flex: 0 0 250px; border-right: 1px solid var(--game-border); padding: 1.5rem; }
+.content-area { flex: 1; overflow-y: auto; }
+.projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 2rem; padding: 2rem; }
+/* ... (Tambahkan gaya untuk kartu, checkbox, dll.) ... */

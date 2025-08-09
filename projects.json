@@ -1,14 +1,14 @@
 [
   {
-    "repo": "NAMA_ANDA/nama-repo-1",
-    "image": "/images/project-1.jpg",
-    "tags": ["React", "CSS"]
+    "repo": "NatanNa12/AI-Asisten-Laptop",
+    "image": "/images/Ai Asistent.png",
+    "tags": ["JS", "CSS","Python"]
   },
   {
-    "repo": "NAMA_ANDA/repo-privat-keren",
-    "image": "/images/project-privat.png",
-    "tags": ["Vue", "HTML"],
-    "isPrivate": false,
+    "repo": "NatanNa12/Project-SItus-",
+    "image": "/images/project-situs.png",
+    "tags": ["JS", "HTML","CSS"],
+    "isPrivate": true,
     "snippetFile": "src/components/MainComponent.vue" 
   },
   {
