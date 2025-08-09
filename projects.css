@@ -1,146 +1,492 @@
-/* Styling khusus untuk halaman projects.html */
-
-.projects-main {
-    display: flex;
-    width: 100%;
-    height: 100%;
-    padding: 0;
+/* Root variables for consistent theming */
+:root {
+   --background-color: #0A192F;
+   --primary-text: #CCD6F6;
+   --secondary-text: #8892B0;
+   --accent-color-1: #56CCF2;
+   --accent-color-2: #F998B2;
+   --game-border: #1E2D3D;
+   --font-family: 'Fira Code', monospace;
 }
 
-/* --- Sidebar (Filter) --- */
+body {
+   font-family: var(--font-family);
+   background-color: var(--background-color);
+   color: var(--primary-text);
+   margin: 0;
+   padding: 0;
+   height: 100vh;
+   display: flex;
+   flex-direction: column;
+}
+
+.container {
+   max-width: 1200px;
+   margin: 0 auto;
+   flex-grow: 1;
+   display: flex;
+   flex-direction: column;
+}
+
+header {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   padding: 1rem 2rem;
+   border-bottom: 1px solid var(--game-border);
+}
+
+.logo {
+   font-size: 1.5rem;
+   font-weight: 500;
+}
+
+nav.desktop-nav a {
+   color: var(--secondary-text);
+   text-decoration: none;
+   margin-left: 1.5rem;
+   font-size: 1rem;
+   position: relative;
+}
+
+nav.desktop-nav a:hover,
+nav.desktop-nav a.active {
+   color: var(--primary-text);
+}
+
+nav.desktop-nav a.active::after {
+   content: '';
+   position: absolute;
+   left: 0;
+   bottom: -5px;
+   width: 100%;
+   height: 2px;
+   background-color: var(--accent-color-1);
+}
+
+.contact-me a {
+   color: var(--accent-color-1);
+   text-decoration: none;
+   border: 1px solid var(--accent-color-1);
+   padding: 0.5rem 1rem;
+   border-radius: 5px;
+   font-size: 1rem;
+}
+
+.contact-me a:hover {
+   background-color: rgba(86, 204, 242, 0.1);
+}
+
+main {
+   display: flex;
+   flex-grow: 1;
+}
+
+aside.icon-bar {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   padding: 1rem;
+   border-right: 1px solid var(--game-border);
+   min-width: 50px;
+}
+
+aside.icon-bar svg {
+   width: 24px;
+   height: 24px;
+   margin-bottom: 1rem;
+   cursor: pointer;
+   fill: none;
+   stroke: var(--secondary-text);
+   transition: stroke 0.3s ease;
+}
+
+aside.icon-bar svg.active,
+aside.icon-bar svg:hover {
+   stroke: var(--accent-color-1);
+}
+
+.info-view, .terminal-view {
+   flex-grow: 1;
+   display: flex;
+   height: 100%;
+}
+
 .sidebar {
-    flex: 0 0 250px;
-    border-right: 1px solid var(--game-border);
-    padding: 1.5rem 0;
-    overflow-y: auto;
-}
-.sidebar-title {
-    font-size: 1rem;
-    color: var(--primary-text);
-    margin: 0 1rem 1rem 1rem;
-    padding-bottom: 1rem;
-    border-bottom: 1px solid var(--game-border);
-}
-.filter-list {
-    list-style: none;
-    padding: 0 1rem;
-    margin: 0;
-}
-.filter-list li {
-    margin-bottom: 1rem;
-}
-.filter-list label {
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    color: var(--secondary-text);
-}
-.filter-list label:hover {
-    color: var(--primary-text);
-}
-.filter-list input[type="checkbox"] {
-    display: none; /* Sembunyikan checkbox asli */
-}
-/* Buat checkbox kustom */
-.filter-list label .custom-checkbox {
-    width: 18px;
-    height: 18px;
-    background-color: transparent;
-    border: 1px solid var(--secondary-text);
-    border-radius: 2px;
-    margin-right: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-/* Tanda centang (muncul jika dicentang) */
-.filter-list input[type="checkbox"]:checked + label .custom-checkbox {
-    background-color: var(--accent-color-1);
-    border-color: var(--accent-color-1);
-}
-.filter-list input[type="checkbox"]:checked + label .custom-checkbox::after {
-    content: '✔';
-    color: var(--primary-text);
-    font-size: 12px;
+   flex: 0 0 300px;
+   border-right: 1px solid var(--game-border);
+   padding: 2rem;
+   overflow-y: auto;
 }
 
-/* --- Area Konten --- */
-.content-area {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
+.sidebar-title {
+   font-size: 1.2rem;
+   color: var(--primary-text);
+   margin-bottom: 1rem;
+   border-bottom: 1px solid var(--game-border);
+   padding-bottom: 0.5rem;
 }
+
+.sidebar-list {
+   list-style: none;
+   padding: 0;
+   margin: 0;
+}
+
+.sidebar-list li {
+   margin-bottom: 0.75rem;
+}
+
+.sidebar-list li a {
+   text-decoration: none;
+   color: var(--secondary-text);
+   display: block;
+   padding: 0.5rem 0;
+   border-left: 3px solid transparent;
+   transition: color 0.3s, border-left 0.3s;
+}
+
+.sidebar-list li a:hover,
+.sidebar-list li.active a {
+   color: var(--accent-color-1);
+   border-left-color: var(--accent-color-1);
+}
+
 .window-tabs {
-    border-bottom: 1px solid var(--game-border);
-    flex-shrink: 0;
+   background-color: #1E2D3D;
+   border-bottom: 1px solid var(--game-border);
+   padding: 0.5rem 1rem;
+   display: flex;
+   align-items: center;
 }
+
 .tab {
-    padding: 0.75rem 1rem;
-    color: var(--secondary-text);
+   color: var(--secondary-text);
+   margin-right: 1rem;
+   padding: 0.5rem 0.75rem;
+   border-radius: 5px 5px 0 0;
+   cursor: pointer;
 }
-.projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 2rem;
-    padding: 2rem;
-    overflow-y: auto;
+
+.tab.active {
+   background-color: var(--background-color);
+   color: var(--primary-text);
 }
-.project-card {
-    background-color: #011221;
-    border: 1px solid var(--game-border);
-    border-radius: 8px;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
+
+.window-content {
+   padding: 2rem;
+   overflow-y: auto;
+   font-size: 1rem;
+   line-height: 1.6;
 }
-.project-card h3 {
-    padding: 1rem;
-    font-size: 1rem;
-    font-weight: 400;
-    color: var(--accent-color-1);
+
+.window-content pre {
+   background-color: #1E2D3D;
+   padding: 1rem;
+   border-radius: 5px;
+   overflow-x: auto;
+   font-size: 0.9rem;
 }
-.project-card h3 span {
-    color: var(--secondary-text);
+
+.terminal-view {
+   flex-direction: column;
+   padding: 2rem;
 }
-.card-image {
-    position: relative;
-    width: 100%;
-    padding-top: 56.25%; /* Aspect ratio 16:9 */
+
+.terminal-view h3 {
+   color: var(--accent-color-1);
+   margin-bottom: 1rem;
 }
-.card-image img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+
+.terminal-view input,
+.terminal-view textarea,
+.terminal-view button {
+   background-color: #1E2D3D;
+   color: var(--primary-text);
+   border: 1px solid var(--game-border);
+   border-radius: 5px;
+   padding: 0.75rem;
+   margin-bottom: 1rem;
+   font-family: var(--font-family);
+   font-size: 0.9rem;
 }
-.card-image .tech-icon {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background-color: rgba(1, 22, 39, 0.8);
-    padding: 5px;
-    border-radius: 4px;
+
+.terminal-view textarea {
+   min-height: 150px;
+   resize: vertical;
 }
-.project-card p {
-    padding: 1rem;
-    color: var(--secondary-text);
-    flex-grow: 1; /* Mendorong tombol ke bawah */
+
+.terminal-view button {
+   background-color: var(--accent-color-1);
+   color: var(--background-color);
+   cursor: pointer;
+   transition: background-color 0.3s;
 }
-.view-button {
-    background-color: var(--game-border);
-    color: var(--primary-text);
-    border: none;
-    padding: 10px 15px;
-    border-radius: 4px;
-    cursor: pointer;
-    text-decoration: none;
-    text-align: center;
-    margin: 1rem;
-    align-self: flex-start; /* Tombol tidak meregang */
+
+.terminal-view button:hover {
+   background-color: #42b8e3;
 }
-.view-button:hover {
-    background-color: #2b435e;
+
+.snippet-card {
+   background-color: #1E2D3D;
+   border: 1px solid var(--game-border);
+   border-radius: 5px;
+   padding: 1rem;
+   margin-bottom: 1rem;
+   font-size: 0.9rem;
+}
+
+.snippet-card .card-header {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   margin-bottom: 0.75rem;
+   color: var(--secondary-text);
+}
+
+.snippet-card .card-code pre {
+   background-color: #283645;
+   padding: 0.75rem;
+   border-radius: 3px;
+   overflow-x: auto;
+   font-size: 0.85rem;
+   max-height: 120px;
+   overflow-y: auto;
+}
+
+footer {
+   border-top: 1px solid var(--game-border);
+   padding: 1rem 2rem;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   color: var(--secondary-text);
+   font-size: 0.8rem;
+}
+
+footer .social-links a {
+   color: var(--secondary-text);
+   text-decoration: none;
+   margin-left: 1rem;
+}
+
+footer .social-links a:hover {
+   color: var(--primary-text);
+}
+
+#mobile-menu-button {
+   display: none;
+   cursor: pointer;
+}
+
+#mobile-menu-overlay {
+   display: none;
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   background-color: rgba(10, 25, 47, 0.95);
+   z-index: 10;
+   padding: 2rem;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+}
+
+#mobile-menu-overlay a {
+   color: var(--primary-text);
+   text-decoration: none;
+   font-size: 1.5rem;
+   margin-bottom: 1.5rem;
+}
+
+@media (max-width: 768px) {
+   nav.desktop-nav,
+   .contact-me.desktop-nav {
+       display: none;
+   }
+   #mobile-menu-button {
+       display: block;
+   }
+   header {
+       justify-content: space-between;
+   }
+   main {
+       flex-direction: column;
+   }
+   aside.icon-bar {
+       flex-direction: row;
+       justify-content: space-around;
+       border-right: none;
+       border-bottom: 1px solid var(--game-border);
+       padding: 1rem 0;
+       min-width: auto;
+   }
+   aside.icon-bar svg {
+       margin-bottom: 0;
+       margin-right: 1rem;
+   }
+   .sidebar {
+       flex: 1;
+       border-right: none;
+       border-bottom: 1px solid var(--game-border);
+       min-height: auto;
+   }
+}
+
+/* Styling for the projects page */
+.projects-main {
+   display: flex;
+   width: 100%;
+   height: 100%;
+   padding: 0;
+}
+
+.projects-main .sidebar {
+   flex: 0 0 200px;
+   border-right: 1px solid var(--game-border);
+   padding: 2rem 1rem;
+   overflow-y: auto;
+}
+
+.projects-main .sidebar-title {
+   font-size: 1rem;
+   color: var(--primary-text);
+   margin-bottom: 1rem;
+   border-bottom: 1px solid var(--game-border);
+   padding-bottom: 0.5rem;
+   margin-left: 0;
+}
+
+.projects-main .filter-list {
+   list-style: none;
+   padding: 0;
+   margin: 0;
+}
+
+.projects-main .filter-list li {
+   margin-bottom: 0.75rem;
+}
+
+.projects-main .filter-list label {
+   display: flex;
+   align-items: center;
+   cursor: pointer;
+   color: var(--secondary-text);
+   font-size: 0.9rem;
+}
+
+.projects-main .filter-list label:hover {
+   color: var(--primary-text);
+}
+
+.projects-main .filter-list input {
+   margin-right: 0.5rem;
+}
+
+.projects-main .content-area {
+   flex-grow: 1;
+   display: flex;
+   flex-direction: column;
+   overflow: hidden;
+}
+
+.projects-main .window-tabs {
+   background-color: #1E2D3D;
+   border-bottom: 1px solid var(--game-border);
+   padding: 0.5rem 1rem;
+   display: flex;
+   align-items: center;
+}
+
+.projects-main .tab {
+   color: var(--secondary-text);
+   margin-right: 1rem;
+   padding: 0.5rem 0.75rem;
+   border-radius: 5px 5px 0 0;
+   cursor: pointer;
+   display: flex;
+   align-items: center;
+   gap: 0.5rem;
+}
+
+.projects-main .tab.active {
+   background-color: var(--background-color);
+   color: var(--primary-text);
+}
+
+.projects-main .projects-grid {
+   display: grid;
+   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+   gap: 1.5rem;
+   padding: 1.5rem;
+   overflow-y: auto;
+}
+
+.projects-main .project-card {
+   background-color: #1E2D3D;
+   border: 1px solid var(--game-border);
+   border-radius: 8px;
+   overflow: hidden;
+   display: flex;
+   flex-direction: column;
+}
+
+.projects-main .project-card h3 {
+   padding: 0.75rem 1rem;
+   font-size: 1rem;
+   font-weight: 500;
+   color: var(--accent-color-1);
+   margin-bottom: 0.5rem;
+}
+
+.projects-main .project-card h3 span {
+   color: var(--secondary-text);
+   font-weight: 400;
+}
+
+.projects-main .card-image {
+   position: relative;
+   width: 100%;
+   aspect-ratio: 16 / 9;
+   overflow: hidden;
+   background-color: #283645; /* Placeholder jika gambar tidak ada */
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.projects-main .card-image img {
+   display: block;
+   width: 100%;
+   height: auto;
+   object-fit: cover;
+}
+
+.projects-main .project-card p {
+   padding: 0.75rem 1rem;
+   color: var(--secondary-text);
+   font-size: 0.9rem;
+   line-height: 1.5;
+   flex-grow: 1;
+}
+
+.projects-main .view-button {
+   background-color: transparent;
+   color: var(--accent-color-1);
+   border: 1px solid var(--accent-color-1);
+   padding: 0.5rem 1rem;
+   border-radius: 5px;
+   cursor: pointer;
+   text-decoration: none;
+   text-align: center;
+   margin: 1rem;
+   align-self: flex-start;
+   font-size: 0.9rem;
+   transition: background-color 0.3s;
+}
+
+.projects-main .view-button:hover {
+   background-color: rgba(86, 204, 242, 0.1);
 }
